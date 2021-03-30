@@ -189,16 +189,16 @@ X,y = spiral_data(samples=100, classes=3)
 
 optimizer = Optimizer_Adam(learning_rate=0.02, decay=1e-5)
 
-dense1 = Layer_Dense(2,16)
+dense1 = Layer_Dense(2,128)
 activation1 = Activation_ReLu()
 
-dense2 = Layer_Dense(16,3)
+dense2 = Layer_Dense(128,3)
 activation2 = Activation_Softmax()
 
 loss_activation = Activation_Softmax_Loss_CategoricalCrossentropy()
 
 
-for epoch in range(1000001):
+for epoch in range(1001):
     #forward pass
 
     #forward step on layer 1
@@ -218,7 +218,7 @@ for epoch in range(1000001):
     accuracy = np.mean(predictions==y)
     
     #print output
-    if not epoch%10000:
+    if not epoch%100:
         print(f'epoch: {epoch}, ' +
               f'acc: {accuracy*100:.3f}%, ' +
               f'loss: {loss:.3f}, ' +
